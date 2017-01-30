@@ -1,0 +1,20 @@
+{"_id":{"$oid":"588f12fe2091f6927856c65f"},"category":"CountryCode","version":"v1","canonicalCode":"AU","description":"Australia","system1Code":"AUS","system2Code":"AU"}
+{"_id":{"$oid":"588f13232091f6927856c660"},"category":"CountryCode","version":"v1","canonicalCode":"CA","description":"Canada","system1Code":"CAN","system2Code":"CA"}
+{"_id":{"$oid":"588f13f42091f6927856c661"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"NSW","description":"New South Wales","system1Code":"NSW","system2Code":"NSW"}
+{"_id":{"$oid":"588f14282091f6927856c662"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"QLD","description":"Queensland","system1Code":"QLD","system2Code":"QLD"}
+{"_id":{"$oid":"588f14572091f6927856c663"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"VIC","description":"Victoria","system1Code":"VIC","system2Code":"VIC"}
+{"_id":{"$oid":"588f147c2091f6927856c664"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"SA","description":"South Australia","system1Code":"SA","system2Code":"SA"}
+{"_id":{"$oid":"588f14982091f6927856c665"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"WA","description":"Western Australia","system1Code":"WA","system2Code":"WA"}
+{"_id":{"$oid":"588f14bb2091f6927856c666"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"NT","description":"Northern Territiory","system1Code":"NT","system2Code":"NT"}
+{"_id":{"$oid":"588f14dd2091f6927856c667"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"TAS","description":"Tasmania","system1Code":"TAS","system2Code":"TAS"}
+{"_id":{"$oid":"588f15032091f6927856c668"},"category":"State","version":"v1","parentCode":"AU","canonicalCode":"ACT","description":"Australian Capital Territory","system1Code":"ACT","system2Code":"ACT"}
+{"_id":{"$oid":"588f15652091f6927856c669"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"ON","description":"Ontario","system1Code":"ON","system2Code":"ON"}
+{"_id":{"$oid":"588f15802091f6927856c66a"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"QC","description":"Quebec","system1Code":"QC","system2Code":"QC"}
+{"_id":{"$oid":"588f15a12091f6927856c66b"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"NS","description":"Nova Scotia","system1Code":"NS","system2Code":"NS"}
+{"_id":{"$oid":"588f15bf2091f6927856c66c"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"NB","description":"New Brunswick","system1Code":"NB","system2Code":"NB"}
+{"_id":{"$oid":"588f15d92091f6927856c66d"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"MB","description":"Manitoba","system1Code":"MB","system2Code":"MB"}
+{"_id":{"$oid":"588f15f22091f6927856c66e"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"BC","description":"British Columbia","system1Code":"BC","system2Code":"BC"}
+{"_id":{"$oid":"588f16112091f6927856c66f"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"PE","description":"Prince Edward Island","system1Code":"PE","system2Code":"PE"}
+{"_id":{"$oid":"588f162d2091f6927856c670"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"SK","description":"Saskatchewan","system1Code":"SK","system2Code":"SK"}
+{"_id":{"$oid":"588f164a2091f6927856c671"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"AB","description":"Alberta","system1Code":"AB","system2Code":"AB"}
+{"_id":{"$oid":"588f16652091f6927856c672"},"category":"State","version":"v1","parentCode":"CA","canonicalCode":"NL","description":"Newfoundland and Labrador","system1Code":"NL","system2Code":"NL"}

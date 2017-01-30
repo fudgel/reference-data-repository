@@ -1,0 +1,2 @@
+{"_id":{"$oid":"588f10282091f6927856c65d"},"category":"CountryCode","version":"v1","description":"The ISO 3166 standard published by the International Organization for Standardization (ISO), to represent countries, dependent territories, and special areas of geographical interest."}
+{"_id":{"$oid":"588f11c52091f6927856c65e"},"category":"State","version":"v1","description":"A territory governed as an administrative or political unit of a country or empire","parentCategory":"CountryCode"}

@@ -1,0 +1,26 @@
+{
+  "name": "reference-data-repository",
+  "version": "0.0.1",
+  "description": "A reference data repository",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "keywords": [
+    "reference",
+    "data",
+    "repository"
+  ],
+  "author": "Jim Walker",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "mongoose": "^4.5.1",
+    "morgan": "~1.6.1",
+    "request": "^2.72.0",
+    "express": "^4.14.1",
+    "serve-favicon": "~2.3.0"
+  }
+}
