@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'production') {
     dbURI = 'mongodb://localhost/refDataRepo';
 }
 
+mongoose.Promise = global.Promise;
 mongoose.connect(dbURI);
 
 // CONNECTION EVENTS
