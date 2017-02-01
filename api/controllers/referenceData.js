@@ -17,7 +17,7 @@ module.exports.referenceDataCategoryList = function(req, res) {
              .then((categoryList) => {
                 // if no data - then respond with error
                 if(!categoryList) {
-                  sendJSONresponse(res, 404, {"message":"No categories found! - that doesn't seem right check the DB"});
+                  sendJSONresponse(res, 204, {"message":"No categories found! - that doesn't seem right check the DB"});
                   return;
                 }
                 // else send data
@@ -25,7 +25,7 @@ module.exports.referenceDataCategoryList = function(req, res) {
              })
              .catch((err) => {
                // if error - respond with error details
-               sendJSONresponse(res, 404, err);
+               sendJSONresponse(res, 500, err);
              });
 };
 
@@ -36,16 +36,16 @@ module.exports.referenceDataCategoryDetails = function(req, res) {
               .exec()
               .then ((categories) => {
                 if(!categories) {
-                  sendJSONresponse(res, 404, {"message":"No reference data category record found for categoryName("+req.params.categoryVersion+") and categoryVersion("+req.params.categoryVersion+")"});
+                  sendJSONresponse(res, 204, {"message":"No reference data category record found for categoryName("+req.params.categoryVersion+") and categoryVersion("+req.params.categoryVersion+")"});
                   return;
                 }
                 sendJSONresponse(res, 200, {categories});
               })
               .catch((err) => {
-                sendJSONresponse(res, 404, err);
+                sendJSONresponse(res, 500, err);
               });
  } else {
-   sendJSONresponse(res, 404, {"message":"categoryName or/and categoryVersion param missing"});
+   sendJSONresponse(res, 400, {"message":"categoryName or/and categoryVersion param missing"});
  }
 };
 
@@ -66,16 +66,16 @@ module.exports.referenceDataCategoryCodes = function(req, res) {
         .exec()
         .then((codes) => {
           if(!codes) {
-            sendJSONresponse(res, 404, {"message":"No codes found for categoryName("+req.params.categoryVersion+") and categoryVersion("+req.params.categoryVersion+")"});
+            sendJSONresponse(res, 204, {"message":"No codes found for categoryName("+req.params.categoryVersion+") and categoryVersion("+req.params.categoryVersion+")"});
             return;
           }
           sendJSONresponse(res, 200, {codes}); 
         })
         .catch((err) => {
-          sendJSONresponse(res, 404, err);
+          sendJSONresponse(res, 500, err);
         });
   } else {
-    sendJSONresponse(res, 404, {"message":"categoryName or/and categoryVersion param missing"});
+    sendJSONresponse(res, 400, {"message":"categoryName or/and categoryVersion param missing"});
   };
 };     
 
@@ -100,14 +100,14 @@ module.exports.referenceDataCategoryCodesCode = function(req, res) {
         .exec()
         .then((codes) => {
           if(!codes) {
-            sendJSONresponse(res, 404, {"message":"No codes found for categoryName("+req.params.categoryVersion+") and categoryVersion("+req.params.categoryVersion+")"});
+            sendJSONresponse(res, 204, {"message":"No codes found for categoryName("+req.params.categoryVersion+") and categoryVersion("+req.params.categoryVersion+")"});
           }
           sendJSONresponse(res, 200, {codes});
         })
         .catch((err) => {
-          sendJSONresponse(res, 404, err);
+          sendJSONresponse(res, 500, err);
         });
  } else {
-   sendJSONresponse(res, 404, {"message":"categoryName or/and categoryVersion param missing"});
+   sendJSONresponse(res, 400, {"message":"categoryName or/and categoryVersion param missing"});
  }
 };
