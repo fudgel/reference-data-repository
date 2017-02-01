@@ -52,6 +52,39 @@ paths:
             type: array
             items:
               $ref: '#/definitions/CategorySummary'
+        204:
+          description: No data available
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            title: ArrayOfCategories
+            type: array
+            items:
+              $ref: '#/definitions/CategorySummary'
+        # Client Errors
+        400:
+          description: Bad Request
+          schema:
+            type: object          
+            properties:
+              status:
+                type: string
+                enum:
+                  - fail
+              data:
+                $ref: '#/definitions/ErrorModel'
+        # Server Errors
+        500:
+          description: Internal Server Error
+          schema:
+            type: object          
+            properties:
+              status:                         #error
+                type: string
+                enum:
+                  - error
+              data:
+                $ref: '#/definitions/ErrorModel'
   # This is a path endpoint. Change it.
   /categories/{categoryName}/{categoryVersion}:
     # This is a HTTP operation
@@ -118,6 +151,30 @@ paths:
             type: array
             items:
               $ref: '#/definitions/CategoryDetails'
+        # Client Errors
+        400:
+          description: Bad Request
+          schema:
+            type: object          
+            properties:
+              status:
+                type: string
+                enum:
+                  - fail
+              data:
+                $ref: '#/definitions/ErrorModel'
+        # Server Errors
+        500:
+          description: Internal Server Error
+          schema:
+            type: object          
+            properties:
+              status:                         #error
+                type: string
+                enum:
+                  - error
+              data:
+                $ref: '#/definitions/ErrorModel'
   # This is a path endpoint. Change it.
   /categories/{categoryName}/{categoryVersion}/codes:
     # This is a HTTP operation
@@ -181,6 +238,30 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Codes' 
+        # Client Errors
+        400:
+          description: Bad Request
+          schema:
+            type: object          
+            properties:
+              status:
+                type: string
+                enum:
+                  - fail
+              data:
+                $ref: '#/definitions/ErrorModel'
+        # Server Errors
+        500:
+          description: Internal Server Error
+          schema:
+            type: object          
+            properties:
+              status:                         #error
+                type: string
+                enum:
+                  - error
+              data:
+                $ref: '#/definitions/ErrorModel'
   # This is a path endpoint. Change it.
   /categories/{categoryName}/{categoryVersion}/codes/{code}:
     # This is a HTTP operation
@@ -237,6 +318,30 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Codes'
+        # Client Errors
+        400:
+          description: Bad Request
+          schema:
+            type: object          
+            properties:
+              status:
+                type: string
+                enum:
+                  - fail
+              data:
+                $ref: '#/definitions/ErrorModel'
+        # Server Errors
+        500:
+          description: Internal Server Error
+          schema:
+            type: object          
+            properties:
+              status:                         #error
+                type: string
+                enum:
+                  - error
+              data:
+                $ref: '#/definitions/ErrorModel'
 definitions:
   Codes:
     discriminator: canonicalCode
@@ -287,3 +392,28 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Codes'
+  #The common error object        
+  ErrorModel:
+    description: Represents the error Model, returned in case of error conditions
+    type: object
+    properties:
+      errorList:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+
+  # Individual Error Object
+  Error:
+    description:  Represent an invidual error.
+    type: object
+    properties:
+      code:
+        description:  Error Code.
+        type: integer
+        format: int32
+      message:
+        description:  Error Message
+        type: string
+      fields:
+        description: Comma seperated list of fields, which caused the error condition.
+        type: string
