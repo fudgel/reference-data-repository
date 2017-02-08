@@ -27,11 +27,17 @@ A simple application that supports APIs for retrieving reference data categories
 <h3>Use Cases:</h3>
 
 1. Get list of all categories and category versions:    <a href="http://localhost:3000/api/categories/">http://localhost:3000/api/categories/</a>
-2. Get detailed document of a reference data category:  <a href="http://localhost:3000/api/categories/CountryCode/v1">http://localhost:3000/api/categories/CountryCode/v1</a>
-3. Get all codes for a given category and version:      <a href="http://localhost:3000/api/categories/CountryCode/v1/codes">http://localhost:3000/api/categories/CountryCode/v1/codes</a>
-4. Get all codes that are filtered by parentCode:       <a href="http://localhost:3000/api/categories/State/v1/codes?parentCode=AU">http://localhost:3000/api/categories/State/v1/codes?parentCode=AU</a>
-5. Get detail of code document for a canonical code:    <a href="http://localhost:3000/api/categories/CountryCode/v1/codes/CA">http://localhost:3000/api/categories/CountryCode/v1/codes/CA</a>
-6. Get system code for given canonical code:            <a href="http://localhost:3000/api/categories/CountryCode/v1/codes/CA?fields=system1Code>http://localhost:3000/api/categories/CountryCode/v1/codes/CA?fields=system1Code</a>
-7. Get canonical code for a given system code:          <a href="http://localhost:3000/api/categories/CountryCode/v1/codes/CAN?sourceCodeTypeQualifer=system1Code&amp;fields=canonicalCode">http://localhost:3000/api/categories/CountryCode/v1/codes/CAN?sourceCodeTypeQualifer=system1Code&amp;fields=canonicalCode</a>
+2. Get detailed document of a reference data category:  <a href="http://localhost:3000/api/categories/CountryCode">http://localhost:3000/api/categories/CountryCode</a>
+3. Get detailed document of a reference data category and version:  <a href="http://localhost:3000/api/categories/CountryCode?categoryVersion=v1">http://localhost:3000/api/categories/CountryCode?categoryVersion=v1</a>
+4. Get all codes for a given category and version:      <a href="http://localhost:3000/api/categories/CountryCode/codes">http://localhost:3000/api/categories/CountryCode/codes</a>
+5. Get all codes that are filtered by parentCode:       <a href="http://localhost:3000/api/categories/State/codes?parentCode=AU">http://localhost:3000/api/categories/State/codes?parentCode=AU</a>
+6. Get detail of code document for a canonical code:    <a href="http://localhost:3000/api/categories/CountryCode/codes/CA">http://localhost:3000/api/categories/CountryCode/codes/CA</a>
+7. Get system code for given canonical code:            <a href="http://localhost:3000/api/categories/CountryCode/codes/CA?fields=system1Code>http://localhost:3000/api/categories/CountryCode/codes/CA?fields=system1Code</a>
+8. Get canonical code for a given system code:          <a href="http://localhost:3000/api/categories/CountryCode/codes/CAN?sourceCodeTypeQualifer=system1Code&amp;fields=canonicalCode">http://localhost:3000/api/categories/CountryCode/codes/CAN?sourceCodeTypeQualifer=system1Code&amp;fields=canonicalCode</a>
+
+<h3>Dependences:</3>
+1. NodeJS 4.x
+2. MongoDB 3.2 or higher
+
 
 READ ME is still a work in progress
