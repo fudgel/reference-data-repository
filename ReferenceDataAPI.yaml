@@ -8,16 +8,17 @@ info:
   version: "0.0.1"
   title: Enterprise Reference Data Service
 
+host: 
+  au2109lp2286
 # Describe your paths here
 paths:
   # This is a path endpoint. Change it.
-  /categories:
+  /api/categories:
     # This is a HTTP operation
     get:
       # Describe this verb here. Note: you can use markdown
       description: |
-        Gets a summary list of all published reference data `categories`. Pagination is supported within this operation.
-        
+        Gets all `Category` summary data for all reference data categories available.
       # This is array of GET operation parameters:
       parameters:
         # An example parameter that is in path and is required
@@ -27,20 +28,20 @@ paths:
           description: A qualifier used to define the fields to be returned in the response.
           required: false
           type: string
-        -
-          name: limit
-          in: query
-          description: a qualifier used to define the maximum number of records to be returned in the response. Used for pagination.
-          required: false
-          type: number
-          format: integer
-        -
-          name: offset
-          in: query
-          description: a qualifier used to define the number of records to skip before returning data in the response. Used for pagination.
-          required: false
-          type: number
-          format: integer
+        #-
+        #  name: limit
+        #  in: query
+        #  description: a qualifier used to define the maximum number of records to be returned in the response. Used for pagination.
+        #  required: false
+        #  type: number
+        #  format: integer
+        #-
+        #  name: offset
+        #  in: query
+        #  description: a qualifier used to define the number of records to skip before returning data in the response. Used for pagination.
+        #  required: false
+        #  type: number
+        #  format: integer
       # Expected responses for this operation:
       responses:
         # Response code
@@ -87,13 +88,13 @@ paths:
               data:
                 $ref: '#/definitions/ErrorModel'
   # This is a path endpoint. Change it.
-  /categories/{categoryName}/{categoryVersion}:
+  /api/categories/{categoryName}:
     # This is a HTTP operation
     get:
       # Describe this verb here. Note: you can use markdown
       description: |
-        Gets all details of the reference data `Category` including but not limited to name, version, description and all codes.
-        Required path params of **categoryName** and **categoryVersion** determines the reference data `Category` record to be returned.
+        Gets the details of all the codes that are defined within the `Category`.
+        Required path params of **categoryName** and **categoryVersion** determines the record to be returned
       # This is array of GET operation parameters:
       parameters:
         # An example parameter that is in path and is required
@@ -106,9 +107,9 @@ paths:
           format: string
         -
           name: categoryVersion
-          in: path
-          description: Qualifies the major version of reference data category. Default for all requests is 'v1'.
-          required: true
+          in: query
+          description: Qualifies the major version of reference data category.
+          required: false
           type: string
           format: string
         #-
@@ -177,12 +178,12 @@ paths:
               data:
                 $ref: '#/definitions/ErrorModel'
   # This is a path endpoint. Change it.
-  /categories/{categoryName}/{categoryVersion}/codes:
+  /api/categories/{categoryName}/codes:
     # This is a HTTP operation
     get:
       # Describe this verb here. Note: you can use markdown
       description: |
-        Gets all canonical and system codes that are part of the reference data `Category`. 
+        Gets all codes of the `Category`. Use fields parameter to return specific canonical or system codes.
       # This is array of GET operation parameters:
       parameters:
         # An example parameter that is in path and is required
@@ -195,15 +196,15 @@ paths:
           format: string
         -
           name: categoryVersion
-          in: path
-          description: Qualifies the major version of reference data category. 
-          required: true
+          in: query
+          description: Qualifies the major version of reference data category.
+          required: false
           type: string
           format: string
         -
           name: codeType
           in: query
-          description: Qualifies if canonical or system codes are required. Example 'canonical' or 'system1Code' for the System1. Pagination is supported within this operation.
+          description: Qualifies if canonical or system codes are required.  For system should use Application Inventory ID of the system without '-' (hyphen). Example 'canonical' or 'CV002' for UCM
           required: false
           type: string
           format: string
@@ -213,20 +214,20 @@ paths:
           description: A qualifier used to define the fields to be returned in the response.
           required: false
           type: string
-        -
-          name: limit
-          in: query
-          description: a qualifier used to define the maximum number of records to be returned in the response. Used for pagination.
-          required: false
-          type: number
-          format: integer
-        -
-          name: offset
-          in: query
-          description: a qualifier used to define the number of records to skip before returning data in the response. Used for pagination.
-          required: false
-          type: number
-          format: integer
+        #-
+        #  name: limit
+        #  in: query
+        #  description: a qualifier used to define the maximum number of records to be returned in the response. Used for pagination.
+        #  required: false
+        #  type: number
+        #  format: integer
+        #-
+        #  name: offset
+        #  in: query
+        #  description: a qualifier used to define the number of records to skip before returning data in the response. Used for pagination.
+        #  required: false
+        #  type: number
+        #  format: integer
       # Expected responses for this operation:
       responses:
         # Response code
@@ -264,12 +265,12 @@ paths:
               data:
                 $ref: '#/definitions/ErrorModel'
   # This is a path endpoint. Change it.
-  /categories/{categoryName}/{categoryVersion}/codes/{code}:
+  /api/categories/{categoryName}/codes/{code}:
     # This is a HTTP operation
     get:
       # Describe this verb here. Note: you can use markdown
       description: |
-        Gets the code record for the given canonical **code**. If **not** a canonical code value then the **sourceCodeTypeQualifer** query param is required as it qualifies which syste the code belongs to. Pagination is supported within this operation.
+        Gets the code record for the given canonical **code**. If **not** a canonical code value then the **sourceCodeTypeQualifer** query param is required as it qualifies which syste the code belongs to
       # This is array of GET operation parameters:
       parameters:
         # An example parameter that is in query and is required
@@ -282,9 +283,9 @@ paths:
           format: string
         -
           name: categoryVersion
-          in: path
+          in: query
           description: Qualifies the major version of reference data category
-          required: true
+          required: false
           type: string
           format: string
         -
@@ -297,7 +298,7 @@ paths:
         -
           name: sourceCodeTypeQualifier
           in: query
-          description: Qualifies if the code is the canonical or a system code. For system should use Application Inventory ID of the system without '-' (hyphen). Example 'System1Code' to qualify that the code is the System1 system code. If not provided it is assumed the code is the canonical code
+          description: Qualifies if the code is the canonical or a system code. For system should use Application Inventory ID of the system without '-' (hyphen). Example 'CV002' to qualify that the code is the UCM system code. If not provided it is assumed the code is the canonical code
           required: false
           type: number
           format: string
@@ -353,22 +354,16 @@ definitions:
     properties:
       category: 
         type: string
-        description: The name of the reference data category
       version:
         type: string
-        description: The major version number of the category prefixed by the letter v
       canonicalCode:
         type: string
-        description: The canonical code value
       description:
         type: string
-        description: The description of the canonical code value
       system1Code:
         type: string
-        description: The code value of System 1
       system2Code:
         type: string
-        description: The code value of System 2
         
   CategorySummary:
     discriminator: canonicalCode
@@ -378,13 +373,10 @@ definitions:
     properties:
       category: 
         type: string
-        description: The name of the reference data category
       version:
         type: string
-        description: The major version number of the category prefixed by the letter 'v'
       description:
         type: string
-        description: The description of the reference data category
 
   CategoryDetails:
     discriminator: canonicalCode
@@ -394,18 +386,12 @@ definitions:
     properties:
       category: 
         type: string
-        description: The name of the reference data category
       version:
         type: string
-        description: The major version number of the category prefixed by the letter 'v'
       description:
-        type: string
-        description: The description of the reference data category
-      parentCategory:
         type: string
       codes:
         type: array
-        description: The complete list of canonical and system codes that are part of the reference data category
         items:
           $ref: '#/definitions/Codes'
   #The common error object        
