@@ -35,9 +35,4 @@ A simple application that supports APIs for retrieving reference data categories
 7. Get system code for given canonical code:            <a href="http://localhost:3000/api/categories/CountryCode/codes/CA?fields=system1Code>http://localhost:3000/api/categories/CountryCode/codes/CA?fields=system1Code</a>
 8. Get canonical code for a given system code:          <a href="http://localhost:3000/api/categories/CountryCode/codes/CAN?sourceCodeTypeQualifer=system1Code&amp;fields=canonicalCode">http://localhost:3000/api/categories/CountryCode/codes/CAN?sourceCodeTypeQualifer=system1Code&amp;fields=canonicalCode</a>
 
-<h3>Dependences:</h3>
-&emsp;1. NodeJS 4.x
-<br>&emsp;2. MongoDB 3.2 or higher
-
-
 READ ME is still a work in progress
