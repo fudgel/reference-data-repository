@@ -7,6 +7,9 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
+module.exports.defaulError = function(req, res) {
+  sendJSONresponse(res, 404, {"message":"Sorry, nothing found at this address"});
+}
 
 /* GET the Reference Data category List */
 module.exports.referenceDataCategoryList = function(req, res) {

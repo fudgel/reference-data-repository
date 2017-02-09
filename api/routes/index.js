@@ -8,4 +8,6 @@ router.get('/categories/:categoryName', ctrlReferenceData.referenceDataCategoryD
 router.get('/categories/:categoryName/codes', ctrlReferenceData.referenceDataCategoryCodes);
 router.get('/categories/:categoryName/codes/:code', ctrlReferenceData.referenceDataCategoryCodesCode);
 
+router.get('*', ctrlReferenceData.defaulError);
+
 module.exports = router;
